@@ -14,11 +14,12 @@ y = df['Obeso']
 model = DecisionTreeClassifier()
 model.fit(X, y)
 
-
 def predict_obesity(imc):
     prediction = model.predict(pd.DataFrame([[imc]], columns=['IMC']))
-    return "Obeso" if prediction[0] else "Nao obeso"
+    return "É Obeso" if prediction[0] else "Nao é obeso"
 
-imc_pergunta = 40.0
+imc_pergunta = float(input("Digite o IMC: "))
+
 resultado = predict_obesity(imc_pergunta)
-print(f"O IMC {imc_pergunta} é: {resultado}")
+
+print(f"O IMC {imc_pergunta} {resultado}")
